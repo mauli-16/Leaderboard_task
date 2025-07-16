@@ -1,0 +1,103 @@
+.leaderboard-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f0f8ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.leaderboard-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.leaderboard-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; 
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+}
+.user-info {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.user-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 150px;
+}
+
+.history-list {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.leaderboard-item:hover {
+  background-color: #eafaf1;
+}
+.claimPoints{
+  background-color: #8dcbbf;
+  margin-left: 30px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+.claimPoints:hover {
+  background-color: #6db7a5; 
+}
+
+
+.rank {
+  font-weight: bold;
+  color: #636e72;
+}
+
+.name {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+}
+
+.points {
+  color: #2d3436;
+  font-weight: bold;
+}
+.prev,.next{
+ background-color: #8dcbbf;
+  margin-left: 30px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+  margin-bottom: 30px;
+}
+.pagination-controls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
