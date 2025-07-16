@@ -2,16 +2,9 @@ const express = require("express");
 const app = express();
 const port = 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
-const client = new MongoClient(
-  "mongodb+srv://watashiwamiyoko:3cMLOFIqNazeGkiI@firstcluster.zs52bcx.mongodb.net/users-database", //connection string
-  {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
-  }
-);
+require('dotenv').config();
+const client = new MongoClient(process.env.MONGO_URL);
+
 
 const cors = require("cors"); //for vercel and render connection using cors
 app.use(cors());
