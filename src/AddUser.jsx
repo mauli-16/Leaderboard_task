@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./App.css";
 
 const AddUser = ({ onUserAdded }) => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState(""); //setting name state
 
   const handleAdd = async () => {
     if (!name.trim()) return;
 
     try {
-      const res = await fetch("http://localhost:5000/add", {
+      const res = await fetch("http://localhost:5000/add", { //adding user
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -20,7 +20,7 @@ const AddUser = ({ onUserAdded }) => {
 
       if (res.ok) {
         setName("");
-        onUserAdded(); // Refresh user list
+        onUserAdded(); //Refresh user list
         alert(data.message);
       } else {
         alert(data.error || "Failed to add user");
@@ -36,12 +36,13 @@ const AddUser = ({ onUserAdded }) => {
         type="text"
         placeholder="Enter user name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e) => setName(e.target.value)} //setting name value
       />
-      <button className="claimPoints" onClick={handleAdd}>
+      
+      <button className="claimPoints" onClick={handleAdd}> 
         Add User
       </button>
-    </div>
+    </div>//calling the function to add above
   );
 };
 

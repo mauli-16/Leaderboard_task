@@ -4,7 +4,7 @@ import "./App.css";
 const ClaimPoints = ({ userId, onClaimed }) => {
   const handlePoints = async () => {
     try {
-      const res = await fetch("http://localhost:5000/claim", {
+      const res = await fetch("http://localhost:5000/claim", { //adding randon points between 1-10
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -12,7 +12,7 @@ const ClaimPoints = ({ userId, onClaimed }) => {
         body: JSON.stringify({ userId }),
       });
 
-      const data = await res.json();
+      const data = await res.json();//getting data
 
       if (res.ok) {
        
@@ -25,7 +25,7 @@ const ClaimPoints = ({ userId, onClaimed }) => {
       console.log(err);
     }
   };
-
+//claim points button
   return (
     <button className="claimPoints" onClick={handlePoints}>
       Claim Points

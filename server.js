@@ -3,7 +3,7 @@ const app = express();
 const port = 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const client = new MongoClient(
-  "mongodb+srv://watashiwamiyoko:3cMLOFIqNazeGkiI@firstcluster.zs52bcx.mongodb.net/users-database",
+  "mongodb+srv://watashiwamiyoko:3cMLOFIqNazeGkiI@firstcluster.zs52bcx.mongodb.net/users-database", //connection string
   {
     serverApi: {
       version: ServerApiVersion.v1,
@@ -12,13 +12,13 @@ const client = new MongoClient(
     },
   }
 );
-app.use(express.static("public"));
-const cors = require("cors");
+
+const cors = require("cors"); //for vercel and render connection using cors
 app.use(cors());
 
-app.use(express.json());
-const database = client.db("userList");
-const history = database.collection("history");
+app.use(express.json()); //for parsing json
+const database = client.db("userList");//creating db
+const history = database.collection("history");//creating collections
 const user = database.collection("user");
 //function to connect
 const connectDB = async () => {
@@ -76,10 +76,12 @@ const connectDB = async () => {
   }
 };
 connectDB();
+
+//getting leaderboard route
 app.get("/users", async (req, res) => {
   try {
     const display = await user.find().sort({ points: -1 }).toArray();
-    // Assign ranks manually
+    //assign ranks manually
     const usersWithRank = display.map((ele, index) => ({
       _id: ele._id,
       rank: index + 1,
@@ -92,6 +94,7 @@ app.get("/users", async (req, res) => {
     console.log(error);
   }
 });
+
 //adding user
 app.post("/add", async (req, res) => {
   try {
@@ -110,7 +113,8 @@ app.post("/add", async (req, res) => {
     console.log(error);
   }
 });
-//claim
+
+//claim points
 app.post("/claim", async (req, res) => {
   try {
     const { userId } = req.body;
@@ -147,6 +151,8 @@ app.post("/claim", async (req, res) => {
     console.log(error);
   }
 });
+
+//points history route
 app.get("/history/:name", async (req, res) => {
   try {
     const name = req.params.name;
