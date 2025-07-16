@@ -5,7 +5,7 @@ const SeeHistory = ({ username }) => {
 
   const fetchHistory = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/history/${username}`); //fetching history by username
+      const res = await fetch(`https://leaderboard-task-axdb.onrender.com/history/${username}`); //fetching history by username
       const data = await res.json();
       setHistory(data);
     } catch (err) {

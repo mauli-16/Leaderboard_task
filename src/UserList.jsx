@@ -9,7 +9,7 @@ const UserList = () => {
   const [page, setPage] = useState(1);
 
   const fetchUsers = () => {
-    fetch("http://localhost:5000/users") //fetching data
+    fetch("https://leaderboard-task-axdb.onrender.com/users") //fetching data
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch((err) => console.log(err));

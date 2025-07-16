@@ -8,7 +8,7 @@ const AddUser = ({ onUserAdded }) => {
     if (!name.trim()) return;
 
     try {
-      const res = await fetch("http://localhost:5000/add", { //adding user
+      const res = await fetch("https://leaderboard-task-axdb.onrender.com/add", { //adding user
         method: "POST",
         headers: {
           "Content-Type": "application/json",

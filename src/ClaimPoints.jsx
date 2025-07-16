@@ -4,7 +4,7 @@ import "./App.css";
 const ClaimPoints = ({ userId, onClaimed }) => {
   const handlePoints = async () => {
     try {
-      const res = await fetch("http://localhost:5000/claim", { //adding randon points between 1-10
+      const res = await fetch("https://leaderboard-task-axdb.onrender.com/claim", { //adding randon points between 1-10
         method: "POST",
         headers: {
           "Content-Type": "application/json",
